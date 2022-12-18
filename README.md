@@ -7,6 +7,6 @@ As for running the bot, you can eiher just `node bot.js` or use the `salesbot.se
 
 ### Links
 
-[hyperspace.xyz API reference](https://docs.hyperspace.xyz/hype/developer-guide/overview)
-[Twitter Development Platform](https://developer.twitter.com/en)
-[Twitter node.js package](https://github.com/PLhery/node-twitter-api-v2)
+- [hyperspace.xyz API reference](https://docs.hyperspace.xyz/hype/developer-guide/overview)
+- [Twitter Development Platform](https://developer.twitter.com/en)
+- [Twitter node.js package](https://github.com/PLhery/node-twitter-api-v2)
