@@ -242,8 +242,11 @@ async function runBot() {
     txArrToTweet = await (await getSales(settings.app.projectId, {stopTxId: lastTweetTxId, stopTimestamp:settings.app.fetchLimitSeconds})).reverse();
     console.log("Transaction array to tweet out:");
     console.log(txArrToTweet);
-
-    txArrToTweet.forEach(tx => {tweetData(tx)});
+    for (const tx of txArrToTweet) {
+        const res = await tweetData(tx);
+        console.log("Tweeted: ");
+        console.log(res);
+    }
 }
 
 function main() {
