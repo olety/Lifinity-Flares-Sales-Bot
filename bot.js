@@ -83,7 +83,7 @@ async function tweetData(tx) {
     const solscanUrl = `https://solscan.io/tx/${tx.txId}`;
     const floorPrice = await getFloorPrice(settings.app.projectId);
     const tweetTemplate =
-        (tx.buyerTwitter ? `@${tx.buyerTwitter}` : "Someone") + ` just purchased Lifinity Flare #${tx.nftId} \n` 
+        (tx.buyerTwitter ? `@${tx.buyerTwitter}` : "Someone") + ` just bought Flare #${tx.nftId} \n` 
         +(tx.sellerTwitter ? `from @${tx.sellerTwitter} ` : "") + (tx.mp ? `on ${tx.mp.name} ` : "on Solana ") + `for ◎${tx.nftPrice}!` + (floorPrice ? ` (floor ◎${floorPrice})` : "") + "\n\n" 
         + `Transaction details 👉 ${solscanUrl} \n`
         + "\n#NFTs #Solana #Lifinity #LifinityFlares";
