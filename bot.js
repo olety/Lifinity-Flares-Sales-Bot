@@ -3,8 +3,6 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 const hs = require('hyperspace-client-js');
 const sharp = require('sharp');
-const { EUploadMimeType } = require('twitter-api-v2');
-const { moveMessagePortToContext } = require('worker_threads');
 
 // Function for fetching the image buffer from a URL
 async function downloadImage(url) {
@@ -52,7 +50,7 @@ async function postImageText(imageUrl, tweetText) {
 
     // Second, upload the image to Twitter and get the ID
     try {
-        var mediaId = await client.v1.uploadMedia(imgGIF, { mimeType: EUploadMimeType.Gif });
+        var mediaId = await client.v1.uploadMedia(imgGIF, { mimeType: tw.EUploadMimeType.Gif });
         console.log(`Successfully uploaded media, ID ${mediaId}`);
     } catch (error) {
         console.error("postImageText: error when uploading image to twitter");

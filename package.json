@@ -1,0 +1,26 @@
+{
+  "name": "lifinity",
+  "version": "1.0.0",
+  "description": "Lifinity Flare Sales Bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olety/Lifinity-Flares-Sales-Bot.git"
+  },
+  "author": "olety",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olety/Lifinity-Flares-Sales-Bot/issues"
+  },
+  "homepage": "https://github.com/olety/Lifinity-Flares-Sales-Bot#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "hyperspace-client-js": "^1.4.10",
+    "js-yaml": "^4.1.0",
+    "sharp": "^0.31.2",
+    "twitter-api-v2": "^1.12.10"
+  }
+}
