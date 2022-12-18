@@ -1,0 +1,16 @@
+[Unit]
+Description=Lifinity Flare Sales Bot
+
+[Service]
+WorkingDirectory=/scriptFolderPath
+ExecStart=/usr/env/bin/node bot.js
+
+Restart=always
+RestartSec=10
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=autodeploy
+
+[Install]
+WantedBy=multi-user.target
