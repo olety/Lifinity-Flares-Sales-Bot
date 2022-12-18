@@ -147,22 +147,22 @@ function processTxList(txArr, stopTxId, stopTimestamp, priceDecimalPlaces=2) {
     var txArrUpd = []
     var needMorePages = true;
     for (const tx of txArr) {
-        txId = tx["market_place_state"]["signature"];
-        txTimestamp = tx["market_place_state"]["block_timestamp"];
+        txId = tx.market_place_state.signature;
+        txTimestamp = tx.market_place_state.block_timestamp;
 
         if (txId == stopTxId || parseInt(txTimestamp) < stopTimestamp) {
             needMorePages = false;
             break;
         } else {
             txArrUpd.push({
-                "nftId": tx["name"].split("#")[1],
-                "imgUrl": tx["full_img"],
+                "nftId": tx.name.split("#")[1],
+                "imgUrl": tx.full_img,
                 "txId": txId,
-                "buyerTwitter": tx["market_place_state"]["metadata"]["buyer_twitter"],
-                "sellerTwitter": tx["market_place_state"]["metadata"]["seller_twitter"],
-                "nftPrice": tx["market_place_state"]["price"].toFixed(priceDecimalPlaces),
+                "buyerTwitter": tx.market_place_state.metadata.buyer_twitter,
+                "sellerTwitter": tx.market_place_state.metadata.seller_twitter,
+                "nftPrice": tx.market_place_state.price.toFixed(priceDecimalPlaces),
                 "timestamp": txTimestamp,
-                "mp": getMarketplaceById(tx["market_place_state"]["marketplace_program_id"], tx["market_place_state"]["marketplace_instance_id"])
+                "mp": getMarketplaceById(tx.market_place_state.marketplace_program_id, tx.market_place_state.marketplace_instance_id)
             })
         }
     }
@@ -185,7 +185,7 @@ async function getSales(projectId, { stopTxId = "-1", stopTimestamp = -1, maxPag
             console.error(error);
             throw error;
         }
-        processResult = processTxList(page["getProjectHistory"]["market_place_snapshots"], stopTxId, stopTimestamp);
+        processResult = processTxList(page.getProjectHistory.market_place_snapshots, stopTxId, stopTimestamp);
         txArr.push(...processResult.txArr);
         if (!processResult.needMorePages || currentPage == maxPagesToGet) {
             break;
