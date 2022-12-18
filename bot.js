@@ -143,7 +143,7 @@ function getHsProjQueryObject(projectId) {
 
 // Process an array of transactions until it finds stopTxId or stopTimestamp
 // Returns an object {txList: <Array>, needMorePages: <Boolean>}
-function processTxList(txArr, stopTxId, stopTimestamp) {
+function processTxList(txArr, stopTxId, stopTimestamp, priceDecimalPlaces=2) {
     var txArrUpd = []
     var needMorePages = true;
     for (const tx of txArr) {
@@ -160,7 +160,7 @@ function processTxList(txArr, stopTxId, stopTimestamp) {
                 "txId": txId,
                 "buyerTwitter": tx["market_place_state"]["metadata"]["buyer_twitter"],
                 "sellerTwitter": tx["market_place_state"]["metadata"]["seller_twitter"],
-                "nftPrice": tx["market_place_state"]["price"],
+                "nftPrice": tx["market_place_state"]["price"].toFixed(priceDecimalPlaces),
                 "timestamp": txTimestamp,
                 "mp": getMarketplaceById(tx["market_place_state"]["marketplace_program_id"], tx["market_place_state"]["marketplace_instance_id"])
             })
@@ -174,7 +174,7 @@ function processTxList(txArr, stopTxId, stopTimestamp) {
 // When provided both, stops at whichever one comes up first 
 // By default, gets all sales for the project (collection)
 // Timestamp should be in seconds
-async function getSales(projectId, { stopTxId = "-1", stopTimestamp = -1, maxPagesToGet = 3 } = {}) {
+async function getSales(projectId, { stopTxId = "-1", stopTimestamp = -1, maxPagesToGet = 3  } = {}) {
     var txArr = []
     var currentPage = 1;
     while (true) {
