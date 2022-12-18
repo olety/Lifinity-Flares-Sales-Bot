@@ -1,0 +1,14 @@
+---
+# To make the app work, change the below values to your keys, and rename this file to "api-keys.yaml"
+app:
+  project_id: HYPERSPACE_PROJECT_ID
+  fetch_limit_seconds: 7200 # How much back to go when fetching sales. default is 2 hrs
+  twitter_at: YOUR_TWITTER_ID
+api:
+  twitter:
+    consumer_key: YOUR_CONSUMER_KEY
+    consumer_secret: YOUR_CONSUMER_SECRET
+    access_token_key: YOUR_ACCESS_TOKEN_KEY
+    access_token_secret: YOUR_ACCESS_TOKEN_SECRET
+  hyperspace:
+    api_key: YOUR_API_KEY
