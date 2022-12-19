@@ -160,7 +160,7 @@ function processTxList(txArr, stopTxId, stopTimestamp, priceDecimalPlaces=2) {
                 "txId": txId,
                 "buyerTwitter": tx.market_place_state.metadata.buyer_twitter,
                 "sellerTwitter": tx.market_place_state.metadata.seller_twitter,
-                "nftPrice": tx.market_place_state.price.toFixed(priceDecimalPlaces),
+                "nftPrice": tx.market_place_state.price == null? "N/A": tx.market_place_state.price.toFixed(priceDecimalPlaces),
                 "timestamp": txTimestamp,
                 "mp": getMarketplaceById(tx.market_place_state.marketplace_program_id, tx.market_place_state.marketplace_instance_id)
             })
