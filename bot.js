@@ -83,8 +83,8 @@ async function tweetData(tx) {
     const solscanUrl = `https://solscan.io/tx/${tx.txId}`;
     const floorPrice = await getFloorPrice(settings.app.projectId);
     const tweetTemplate =
-        (tx.buyerTwitter ? `@${tx.buyerTwitter}` : "Someone") + ` just bought Flare #${tx.nftId} \n` 
-        +(tx.sellerTwitter ? `from @${tx.sellerTwitter} ` : "") + (tx.mp ? `on ${tx.mp.name} ` : "on Solana ") + `for ◎${tx.nftPrice}!` + (floorPrice ? ` (floor ◎${floorPrice})` : "") + "\n\n" 
+        (tx.buyerTwitter ? `${tx.buyerTwitter}` : "Someone") + ` just bought Flare #${tx.nftId} \n` 
+        +(tx.sellerTwitter ? `from ${tx.sellerTwitter} ` : "") + (tx.mp ? `on ${tx.mp.name} ` : "on Solana ") + `for ◎${tx.nftPrice}!` + (floorPrice ? ` (floor ◎${floorPrice})` : "") + "\n\n" 
         + `Transaction details 👉 ${solscanUrl} \n`
         + "\n#NFTs #Solana #Lifinity #LifinityFlares";
 
@@ -276,3 +276,4 @@ generateMarketplaceYaml();
 const marketplaces = yaml.load(fs.readFileSync('marketplaces.yaml', 'utf8'));
 
 main();
+// getFloorPrice(settings.app.projectId).then(x => console.log(x))
